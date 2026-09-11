@@ -12,7 +12,7 @@
             intensity="0.8" 
             light="type:directional; 
                    castShadow:true; 
-                   shadowCameraVisible: true;
+                   shadowCameraVisible: false;
                    shadow-camera-left=:-20;
                    shadow-camera-right:20;
                    shadow-camera-top:20;
@@ -71,8 +71,7 @@
         <!-- L'entité joueur qui prend la forme d'une sphère et avec comme enfant, la caméra et les 2 joysticks -->
         <a-entity id="rig"
                 position="0 1.6 5"
-                dynamic-body="mass: 1; shape: sphere; sphereRadius: 0.3; linearDamping: 0.9"
-                fix-rotation>
+                dynamic-body="mass: 1; shape: sphere; sphereRadius: 0.3; linearDamping: 0.9">
 
             <a-entity id="cameraRig">
                 <a-entity id="camera" camera look-controls position="0 0 0"></a-entity>

@@ -36,9 +36,19 @@ AFRAME.registerComponent('vr-move', {
     this.el.addEventListener('axismove', (evt) => { this.axis = evt.detail.axis; });
 
     // Ligne de debug temporaire — this.el.addEventListener('axismove', (e) => console.log('axismove', e.detail.axis));
+
+    const rig = this.el.parentEl.parentEl; // #rig, via #cameraRig;
+    rig.addEventListener('body-loaded', () => {
+      this.body = rig.body;
+      this.body.fixedRotation = true;
+      this.body.angularFactor.set(0, 0, 0); // gardez cette ligne aussi, pas seulement fixedRotation
+      this.body.updateMassProperties();
+    });
   },
+
+
   tick: function () {
-    const rig = this.el.parentEl;
+    const rig = this.el.parentEl.parentEl;
     const body = rig.body;
     if (!body) return;
 
