@@ -73,6 +73,7 @@ AFRAME.registerComponent('vr-move', {
     // y négatif = stick poussé vers l'avant sur la plupart des manettes
     const moveX = (right.x * x + forward.x * y) * speed;
     const moveZ = (right.z * x + forward.z * y) * speed;
+    console.log('forward:', forward.toArray(), 'right:', right.toArray(), 'x:', x, 'y:', y); //debug
 
     body.velocity.x = moveX;
     body.velocity.z = moveZ;
