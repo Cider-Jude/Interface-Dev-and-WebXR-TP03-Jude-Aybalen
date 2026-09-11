@@ -67,12 +67,12 @@ AFRAME.registerComponent('vr-move', {
     forward.y = 0;
     forward.normalize();
 
-    const right = new THREE.Vector3(forward.z, 0, -forward.x);
+    const right = new THREE.Vector3(forward.z, 0, +forward.x);
 
     const speed = this.data.speed;
     // y négatif = stick poussé vers l'avant sur la plupart des manettes
-    const moveX = (right.x * x - forward.x * y) * speed;
-    const moveZ = (right.z * x - forward.z * y) * speed;
+    const moveX = (right.x * x + forward.x * y) * speed;
+    const moveZ = (right.z * x + forward.z * y) * speed;
 
     body.velocity.x = moveX;
     body.velocity.z = moveZ;
