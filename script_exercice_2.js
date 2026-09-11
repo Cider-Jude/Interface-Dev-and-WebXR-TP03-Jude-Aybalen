@@ -1,6 +1,6 @@
 AFRAME.registerComponent('grab-controller', {
   schema: {
-    grabRadius: { type: 'number', default: 0.4 }
+    grabRadius: { type: 'number', default: 2 }
   },
 
   init: function () {
